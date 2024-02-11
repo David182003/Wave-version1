@@ -94,3 +94,17 @@ body {
 .header-social a:last-child {
   margin-right: 0;
 }
+
+/*====================================================
+Header Bottom
+====================================================*/
+.header-bottom {
+  background-color: var(--white-color);
+  padding: 20px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+git checkout -b update_header_bottom_and_top
+.header-bottom  ul li {
+  margin-right: 30px;
+}
