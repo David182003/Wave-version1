@@ -23,7 +23,7 @@
   --section-title-space: 60px;
   --ripple-ani-duration: 5s;
 }
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -42,10 +42,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-
 .wa-header {
 }
-
 
 .header-top {
   background-color: var(--theme-color);
@@ -88,13 +86,27 @@ body {
 }
 
 .header-social a {
-  margin-right: 10px;
+  margin-right: 3px;
+  padding: 5px 10px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-social a:last-child {
   margin-right: 0;
 }
 
+/*Hover*/
+.header-social a:hover {
+  color: var(--theme-color);
+  background-color: var(--white-color);
+  border: 2px solid var(--theme-color);
+}
 /*====================================================
 Header Bottom
 ====================================================*/
@@ -104,7 +116,167 @@ Header Bottom
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 }
 
-git checkout -b update_header_bottom_and_top
-.header-bottom  ul li {
+.header-bottom .row {
+  display: flex;
+  align-items: center; /* Alinea los ítems al centro verticalmente */
+}
+
+.header-bottom ul {
+  display: flex;
+  align-items: center; /* Alinea los ítems al centro verticalmente */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header-bottom ul li {
   margin-right: 30px;
+}
+
+.header-bottom ul li:last-child {
+  margin-right: 0;
+}
+
+.header-bottom .header-bottom-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-bottom .header-bottom-center {
+  display: flex;
+  justify-content: center;
+}
+
+.header-bottom .header-bottom-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-bottom .header-bottom-right .btn-action {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.3s;
+  color: var(--white-color);
+  background-color: var(--theme-color);
+  border: 2px solid var(--theme-color);
+  text-decoration: none;
+}
+
+.header-bottom .header-bottom-right .btn-action:not(.btn-contact):after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--title-color);
+  z-index: -1;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+  border-radius: 99px;
+  -webkit-transform: scaleY(1.1);
+  -ms-transform: scaleY(1.1);
+  transform: scaleY(1.1);
+}
+
+.header-bottom .header-bottom-right .btn-action:hover {
+  color: var(--theme-color);
+  background-color: var(--white-color);
+  border: 2px solid var(--theme-color);
+}
+
+.header-bottom ul li a {
+  color: var(--title-color);
+  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+
+.header-bottom ul li a:hover {
+  color: var(--theme-color);
+}
+/*Button Movil*/
+.header-bottom-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu.toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+  background-color: var(--theme-color);
+  color: var(--white-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s ease-in-out !important;
+  box-sizing: border-box;
+}
+
+.menu.toggle:hover {
+  background-color: var(--white-color);
+  color: var(--theme-color) !important;
+  border: 1px solid var(--theme-color);
+}
+
+/*====================================================
+Responsive
+====================================================*/
+/* ------ IPHONE ------ */
+@media screen and (max-width: 767px) {
+  .header-top,
+  .header-bottom-center,
+  .header-bottom-right {
+    display: none !important;
+  }
+}
+
+/* ------ TABLET ------ */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .header-top,
+  .header-bottom-center,
+  .header-bottom-right {
+    display: none !important;
+  }
+
+  /*Button Movil*/
+  .header-bottom-left {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Añade esta línea */
+  }
+
+  .header-bottom-left > *:not(.menu.toggle) {
+    display: flex !important;
+  }
+
+  .menu.toggle {
+    display: flex !important;
+    margin-left: auto; /* Añade esta línea */
+  }
+}
+/* ------ DESKTOP ------ */
+@media screen and (min-width: 1024px) {
+  /*Button Movil*/
+  .header-bottom-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu.toggle {
+    display: none;
+  }
 }
